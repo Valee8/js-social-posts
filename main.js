@@ -109,3 +109,10 @@ posts.forEach(elementPosts => {
             </div>            
         </div>`;
 });
+
+
+document.querySelector(".like-button").addEventListener("click",
+    function() {
+        document.querySelector(".like-button").className = "like-button--liked";
+    }
+);

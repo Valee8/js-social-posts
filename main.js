@@ -110,8 +110,6 @@ posts.forEach(elementPosts => {
         </div>`;
 });
 
-
-
 const likeButton = document.getElementsByClassName("like-button");
 
 console.log(likeButton);
@@ -123,8 +121,18 @@ posts.forEach((element, index) => {
         function() {
 
             likeButton[index].classList.toggle("like-button--liked");
-         
+
+            if(likeButton[index].classList.contains("like-button--liked")) {
+
+                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+1;
+            }
+            else {
+                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes;
+            }
+ 
         }
     );
     
 });
+
+    

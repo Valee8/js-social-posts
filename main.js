@@ -129,6 +129,12 @@ posts.forEach((element, index) => {
             else {
                 document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes;
             }
+
+            const idArray = [];
+
+            idArray.push(element.id);
+
+            console.log(idArray);
  
         }
     );

@@ -112,11 +112,19 @@ posts.forEach(elementPosts => {
 
 const likeButton = document.getElementsByClassName("like-button");
 
+const changeDate = document.getElementsByClassName("post-meta__time");
+
 console.log(likeButton);
 
 let counter = 0;
 
 posts.forEach((element, index) => {
+
+    const date = element.created;
+
+    const newDate = date.split("-").reverse().join("-");
+
+    changeDate[index].innerHTML = newDate;
 
     likeButton[index].addEventListener("click",
 

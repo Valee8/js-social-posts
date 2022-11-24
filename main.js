@@ -113,7 +113,7 @@ posts.forEach(elementPosts => {
         </div>`;
 });
 
-// Faccio i controlli su tutti i post con forEach
+// Scorro su tutti i post con forEach
 posts.forEach((element, index) => {
 
     // Assegno a date la data del post che è contenuta in created

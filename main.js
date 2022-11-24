@@ -75,6 +75,9 @@ const posts = [
     }
 ];
 
+const likeButton = document.getElementsByClassName("like-button");
+
+let counter = 0;
 
 posts.forEach(elementPosts => {
     document.getElementById("container").innerHTML += `
@@ -110,14 +113,6 @@ posts.forEach(elementPosts => {
         </div>`;
 });
 
-const likeButton = document.getElementsByClassName("like-button");
-
-const changeDate = document.getElementsByClassName("post-meta__time");
-
-const postImage = document.getElementsByClassName("post__image");
-
-let counter = 0;
-
 // Faccio i controlli su tutti i post con forEach
 posts.forEach((element, index) => {
 
@@ -128,7 +123,7 @@ posts.forEach((element, index) => {
     const newDate = date.split("-").reverse().join("-");
 
     // La aggiungo all'html
-    changeDate[index].innerHTML = newDate;
+    document.getElementsByClassName("post-meta__time")[index].innerHTML = newDate;
 
     // Assegno a name il nome del creatore del post
     const name = element.author.name;
@@ -141,7 +136,7 @@ posts.forEach((element, index) => {
 
     // Se l'immagine è uguale a null allora sostituisco il contenuto con newName
     if (image === null) {
-        postImage[index].innerHTML = newName;
+        document.getElementsByClassName("post__image")[index].innerHTML = newName;
     }
 
     // Al click del tasto mi piace

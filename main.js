@@ -92,7 +92,7 @@ posts.forEach(elementPosts => {
             </div>
             <div class="post__text">${elementPosts.content}</div>
             <div class="post__image">
-                <img src="${elementPosts.author.image}" alt="">
+                <img src="${elementPosts.author.image}" alt="${elementPosts.author.name}">
             </div>
             <div class="post__footer">
                 <div class="likes js-likes">

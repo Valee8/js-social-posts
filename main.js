@@ -114,6 +114,8 @@ const likeButton = document.getElementsByClassName("like-button");
 
 console.log(likeButton);
 
+let counter = 0;
+
 posts.forEach((element, index) => {
 
     likeButton[index].addEventListener("click",
@@ -124,10 +126,14 @@ posts.forEach((element, index) => {
 
             if(likeButton[index].classList.contains("like-button--liked")) {
 
-                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+1;
+                counter++;
+
+                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+counter;
             }
             else {
-                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes;
+                counter--;
+                
+                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+counter;
             }
 
             const idArray = [];
@@ -140,5 +146,3 @@ posts.forEach((element, index) => {
     );
     
 });
-
-    

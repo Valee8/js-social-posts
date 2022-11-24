@@ -114,24 +114,45 @@ const likeButton = document.getElementsByClassName("like-button");
 
 const changeDate = document.getElementsByClassName("post-meta__time");
 
-console.log(likeButton);
+const postImage = document.getElementsByClassName("post__image");
 
 let counter = 0;
 
+// Faccio i controlli su tutti i post con forEach
 posts.forEach((element, index) => {
 
+    // Assegno a date la data del post che è contenuta in created
     const date = element.created;
 
+    // Creo la nuova data invertendo giorno e anno
     const newDate = date.split("-").reverse().join("-");
 
+    // La aggiungo all'html
     changeDate[index].innerHTML = newDate;
 
+    // Assegno a name il nome del creatore del post
+    const name = element.author.name;
+
+    // Sostituisco tutte le lettere minuscole compreso lo spazio che c'è tra nome e cognome con una stringa vuota
+    const newName = name.replace(/[a-z\s]/g, "");
+
+    // Assegno a image l'immagine del post
+    const image = element.author.image;
+
+    // Se l'immagine è uguale a null allora sostituisco il contenuto con newName
+    if (image === null) {
+        postImage[index].innerHTML = newName;
+    }
+
+    // Al click del tasto mi piace
     likeButton[index].addEventListener("click",
 
         function() {
 
+            // Aggiungo la nuova classe per il cambio colore
             likeButton[index].classList.toggle("like-button--liked");
 
+            // Se il bottone è cliccato allora incremento counter altrimenti lo decremento (per il numero di like)
             if(likeButton[index].classList.contains("like-button--liked")) {
                 counter++;
             }
@@ -139,6 +160,7 @@ posts.forEach((element, index) => {
                 counter--;
             }
 
+            // Assegno il nuovo valore all'html
             document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+counter;
 
             const idArray = [];

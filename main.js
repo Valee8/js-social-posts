@@ -125,16 +125,13 @@ posts.forEach((element, index) => {
             likeButton[index].classList.toggle("like-button--liked");
 
             if(likeButton[index].classList.contains("like-button--liked")) {
-
                 counter++;
-
-                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+counter;
             }
             else {
                 counter--;
-                
-                document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+counter;
             }
+
+            document.getElementById(`like-counter-${element.id}`).innerHTML = element.likes+counter;
 
             const idArray = [];
 
